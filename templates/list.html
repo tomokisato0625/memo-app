@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>{{ message }}</h1>
+
+<ul class="post-list">
+    {% for post in posts %}
+    <li>
+        <a href="/show/{{ post.id }}" class="button show-button">
+            {{ post.title }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+<p><a href='/new' class="button new-button">新規メモ</a></p>
+
+{% endblock %}

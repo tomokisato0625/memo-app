@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% block content %}
+<p>タイトル：{{post.title}}</p>
+
+<p>本文：{{ post.content }}</p>
+
+<p><a href='/' class="button back-button">一覧に戻る</a> | <a href='/edit/{{ post
+        .id }}' class="button edit-button">編集</a> | <a href='/destroy/{{ post.id }}' class="button delete-button">削除</a></p>
+
+{% endblock %}

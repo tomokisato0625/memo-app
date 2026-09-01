@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% block content %}
+<form action="/create" method="post">
+    <label for="title">タイトル</label><br>
+    <input type="text" name="title" value="">
+    <p></p>
+    <label for="content">本文</label><br>
+    <textarea name="content" cols="40" rows="10"></textarea>
+    <p></p>
+    <a href="/create" class="button save-button">保存する</a>
+    <a href='/' class="button back-button">キャンセル</a>
+</form>
+{% endblock %}
