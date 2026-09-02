@@ -8,6 +8,12 @@
         <a href="/show/{{ post.id }}" class="button show-button">
             {{ post.title }}
         </a>
+
+         {% if post.created_at %}
+        <p>
+            {{ post.created_at.strftime('%Y/%m/%d %H:%M') }}
+        </p>
+    {% endif %}
     </li>
     {% endfor %}
 </ul>

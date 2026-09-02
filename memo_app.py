@@ -1,3 +1,4 @@
+from datetime import datetime
 from importlib import import_module
 
 from flask import Flask, render_template, request
@@ -23,6 +24,7 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     title = db.Column(db.Text())
     content = db.Column(db.Text())
+    created_at = db.Column(db.DateTime, default=datetime.now)
 
 with app.app_context():
     db.create_all()
