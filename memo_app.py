@@ -1,8 +1,12 @@
+import os
 from datetime import datetime
 from importlib import import_module
 
+from dotenv import load_dotenv
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
+
+load_dotenv()
 
 try:
     Markdown = import_module("flask_markdown").Markdown
@@ -13,8 +17,10 @@ app = Flask(__name__)
 if Markdown is not None:
     Markdown(app)
 
+password = os.getenv("MYSQL_PASSWORD")
 
-db_uri = 'mysql+pymysql://root:1234@localhost/mylog?charset=utf8'
+db_uri = f'mysql+pymysql://root:{password}@localhost/mylog?charset=utf8'
+
 app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 db = SQLAlchemy(app)
 
